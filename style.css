@@ -1,0 +1,624 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f7f3ed; /* Soft cream background */
+    background-image: url('images/earthy_herbs_background.jpg'); /* Image 3 as subtle body background */
+    background-attachment: fixed;
+    background-size: cover; /* or contain, depending on desired effect */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode styles (will need adjustment if you want full dark mode for this specific design) */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+    background-image: url('images/dark_leaves_background.jpg'); /* Image 2 for dark mode */
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+body.dark-mode .navbar {
+    background-color: rgba(31, 31, 31, 0.9);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2d6a4f; /* Darker green for logo */
+}
+
+body.dark-mode .logo {
+    color: #a5d6a7; /* Lighter green for logo in dark mode */
+}
+
+.menu-toggle {
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: block; /* Always visible for mobile */
+    color: #2d6a4f;
+}
+body.dark-mode .menu-toggle {
+    color: #a5d6a7;
+}
+
+/* Hide desktop nav links initially */
+.nav-links {
+    display: none; 
+}
+
+/* Desktop navigation style (adjust breakpoint as needed) */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none; /* Hide hamburger on desktop */
+    }
+    .nav-links {
+        display: flex; /* Show desktop links */
+        list-style: none;
+        gap: 20px;
+    }
+    .nav-links li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        padding: 5px 0;
+        transition: color 0.3s ease;
+    }
+    .nav-links li a:hover {
+        color: #2d6a4f;
+    }
+    body.dark-mode .nav-links li a {
+        color: #e0e0e0;
+    }
+    body.dark-mode .nav-links li a:hover {
+        color: #a5d6a7;
+    }
+    .btn-appointment {
+        background-color: #ffd43b; /* Yellow for appointment button */
+        color: #333;
+        padding: 10px 15px;
+        border-radius: 50px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        display: block; /* Show on desktop */
+    }
+    .btn-appointment:hover {
+        background-color: #ffb703;
+    }
+}
+
+
+/* Full Screen Menu Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Hidden by default */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px); /* Subtle blur */
+    transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* More dynamic transition */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+body.dark-mode .menu-overlay {
+    background-color: rgba(18,18,18,0.95);
+}
+
+.menu-overlay.active {
+    left: 0;
+}
+
+.menu-overlay ul {
+    list-style: none;
+    text-align: center;
+}
+
+.menu-overlay ul li {
+    margin: 20px 0;
+}
+
+.menu-overlay ul li a, .menu-overlay ul li button {
+    text-decoration: none;
+    font-size: 1.8rem; /* Larger font for full screen menu */
+    color: #2d6a4f;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex; /* For icon and text alignment */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.menu-overlay ul li a i, .menu-overlay ul li button i {
+    font-size: 1.5rem;
+}
+
+body.dark-mode .menu-overlay ul li a,
+body.dark-mode .menu-overlay ul li button {
+    color: #a5d6a7;
+}
+
+/* Theme Toggle Button in Navbar (for desktop) */
+#theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #333;
+    margin-left: 10px;
+    transition: color 0.3s ease;
+}
+#theme-toggle:hover {
+    color: #2d6a4f;
+}
+body.dark-mode #theme-toggle {
+    color: #e0e0e0;
+}
+body.dark-mode #theme-toggle:hover {
+    color: #a5d6a7;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('images/hero.jpg') center/cover no-repeat; /* Hero image from screenshot */
+    padding: 180px 20px 100px; /* More vertical padding */
+    text-align: left;
+    color: #fff;
+    position: relative;
+    z-index: 1; /* Ensure text is above background */
+}
+
+.hero-content {
+    max-width: 600px; /* Constrain content width */
+}
+
+.hero-content h1 {
+    font-size: 3.5rem; /* Larger hero title */
+    margin-bottom: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+.hero .btn {
+    background-color: #ffd43b; /* Yellow button as in screenshot */
+    color: #333;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.hero .btn:hover {
+    background-color: #ffb703;
+}
+
+/* Section Titles */
+.section {
+    padding: 80px 20px; /* Consistent padding */
+    position: relative;
+    z-index: 1;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem; /* Larger section titles */
+    margin-bottom: 20px;
+    color: #2d6a4f; /* Darker green for titles */
+    font-weight: 600;
+}
+
+.section-title-light { /* For titles in dark sections */
+    color: #fff;
+}
+
+/* Therapy Section */
+.therapies.light-theme-bg {
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white for content bg */
+    background-image: url('images/earthy_herbs_background.jpg'); /* Image 3 as background */
+    background-size: cover;
+    background-position: center;
+    margin-top: -60px; /* Overlap with hero for smooth transition */
+    padding-top: 100px;
+    border-radius: 15px 15px 0 0; /* Rounded top corners */
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.05); /* Soft shadow for lift */
+}
+
+.therapies .therapy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly larger cards */
+    gap: 30px; /* More spacing */
+    max-width: 1000px; /* Constrain grid width */
+    margin: 0 auto;
+}
+
+.therapy-card {
+    background-color: #fff; /* White cards */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Clearer shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.therapy-card:hover {
+    transform: translateY(-8px); /* More pronounced hover effect */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.therapy-card img {
+    width: 100%;
+    height: 200px; /* Slightly taller images */
+    object-fit: cover;
+}
+
+.therapy-card h3 {
+    margin: 15px;
+    color: #2d6a4f;
+    font-weight: 600;
+    font-size: 1.3rem; /* Larger therapy title */
+}
+
+.therapy-card p {
+    margin: 0 15px 15px;
+    font-size: 1rem;
+    color: #555; /* Slightly lighter text color */
+}
+
+/* Services Section */
+.services.dark-theme-bg {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('images/dark_leaves_background.jpg') center/cover no-repeat fixed; /* Image 2 as background */
+    color: #e0e0e0; /* Light text for dark background */
+}
+
+.service-subtitle {
+    text-align: center;
+    color: #c9c9c9; /* Lighter subtitle */
+    font-size: 1.1rem;
+    margin-top: -30px; /* Adjust spacing with title */
+    margin-bottom: 50px; /* More spacing before cards */
+}
+
+.services .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background-color: rgba(255,255,255,0.08); /* Slightly transparent white for dark section cards */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    background-color: rgba(255,255,255,0.15); /* Slightly lighter on hover */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.service-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.service-card h3 {
+    margin: 15px;
+    color: #ffd43b; /* Yellow for service titles */
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.service-card p {
+    margin: 0 15px 15px;
+    font-size: 1rem;
+    color: #c9c9c9;
+}
+
+/* About Section */
+.about {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Match therapies section background */
+    background-image: url('images/earthy_herbs_background.jpg'); /* Image 3 as background */
+    background-size: cover;
+    background-position: center;
+}
+
+.about p {
+    max-width: 800px;
+    margin: 20px auto 0;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+/* Contact Section */
+.contact {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Match therapies section background */
+    background-image: url('images/earthy_herbs_background.jpg'); /* Image 3 as background */
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 0 15px 15px; /* Rounded bottom corners */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 40px; /* Space before footer */
+}
+
+.contact p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #444;
+}
+.contact strong {
+    color: #2d6a4f;
+}
+
+/* Footer */
+.footer {
+    background-color: #2d6a4f; /* Dark green footer */
+    color: #fff;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+    .hero {
+        padding: 100px 20px 60px;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    .menu-toggle {
+        display: block; /* Ensure hamburger is visible on small screens */
+    }
+    .nav-links {
+        display: none; /* Hide desktop links on small screens */
+    }
+    .btn-appointment {
+        display: none; /* Hide desktop button on small screens */
+    }
+    .menu-overlay ul li a, .menu-overlay ul li button {
+        font-size: 1.3rem; /* Adjust font size for mobile menu */
+    }
+}
+/* New Scheduling Section Styles */
+.scheduling {
+    text-align: center;
+}
+
+.booking-subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 50px;
+}
+
+.scheduling-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+@media (min-width: 768px) {
+    .scheduling-grid {
+        grid-template-columns: 1fr 1.5fr;
+    }
+}
+
+.scheduling-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    padding: 30px;
+    text-align: left;
+}
+
+.scheduling-card h3 {
+    font-size: 1.5rem;
+    color: #2d6a4f;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.scheduling-card .subtitle {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+/* Therapy List */
+.therapy-list .therapy-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.therapy-list .therapy-option:hover {
+    background-color: #eaf1e8;
+    border-color: #2d6a4f;
+}
+
+.therapy-option.selected {
+    background-color: #2d6a4f;
+    border-color: #2d6a4f;
+    color: #fff;
+}
+
+.therapy-option.selected .therapy-details h4,
+.therapy-option.selected .therapy-details p,
+.therapy-option.selected .therapy-price {
+    color: #fff;
+}
+
+.therapy-details h4 {
+    font-size: 1.2rem;
+    color: #2d6a4f;
+    margin: 0;
+}
+
+.therapy-details p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 5px 0 0;
+}
+
+.therapy-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2d6a4f;
+}
+
+/* Calendar Styling */
+.calendar-container {
+    width: 100%;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header h4 {
+    font-size: 1.2rem;
+    color: #2d6a4f;
+    margin: 0;
+}
+
+.calendar-days-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+.day-cell {
+    padding: 10px 0;
+    font-weight: 500;
+    color: #555;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.day-cell.inactive {
+    color: #bbb;
+    cursor: not-allowed;
+}
+
+.day-cell.selected {
+    background-color: #ffd43b;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Final Booking Info Card */
+.selected-info-card {
+    background-color: #2d6a4f;
+    color: #fff;
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.selected-info-card .info-item p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.selected-info-card .info-item span {
+    font-weight: bold;
+    color: #ffd43b;
+}
+
+.book-final-btn {
+    background-color: #ffd43b;
+    color: #333;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 15px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.book-final-btn:hover {
+    background-color: #ffb703;
+}

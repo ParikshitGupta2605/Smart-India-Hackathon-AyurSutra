@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        #t{
+            display: grid;
+            place-items: center;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AyurNexus - Holistic Wellness</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="theme-background">
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="logo">AyurNexus</div>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#therapies"><i class="fas fa-leaf"></i> Therapies</a></li>
+                <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="#"><i class="fas fa-robot"></i> Chatbot</a></li>
+                <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+                <li><button id="theme-toggle"><i class="fas fa-moon"></i></button></li>
+            </ul>
+            <a href="#appointment" class="btn-appointment">Book Appointment</a>
+        </div>
+    </nav>
+
+    <div id="menu-overlay" class="menu-overlay">
+        <ul>
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#therapies"><i class="fas fa-leaf"></i> Therapies</a></li>
+            <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+            <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="#"><i class="fas fa-robot"></i> Chatbot</a></li>
+            <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+            <li><button id="theme-toggle-mobile"><i class="fas fa-moon"></i> Dark/Light Mode</button></li>
+        </ul>
+    </div>
+
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>Reconnect with Inner Harmony</h1>
+            <p>Experience Ayurveda’s timeless therapies crafted with herbs, oils, and ancient wisdom — for holistic healing of body, mind & soul.</p>
+            <a href="#therapies" class="btn">Explore Treatments</a>
+        </div>
+    </section>
+
+    <section id="therapies" class="section therapies light-theme-bg">
+        <div class="container">
+            <h2>Panchakarma Therapies</h2>
+            <div class="therapy-grid">
+                <div class="therapy-card">
+                    <img src="images/therapy1.jpg" alt="Vamana">
+                    <h3>Vamana</h3>
+                    <p>A therapeutic emesis treatment to expel toxins from the body and balance Kapha dosha.</p>
+                </div>
+                <div class="therapy-card">
+                    <img src="images/therapy2.jpg" alt="Basti">
+                    <h3>Basti</h3>
+                    <p>A medicated enema therapy for cleansing the colon and balancing Vata dosha.</p>
+                </div>
+                <div class="therapy-card">
+                    <img src="images/therapy3.jpg" alt="Virechan">
+                    <h3>Virechan</h3>
+                    <p>A purgation therapy that helps eliminate Pitta-related toxins from the liver and intestines.</p>
+                </div>
+                <div class="therapy-card">
+                    <img src="images/therapy4.jpg" alt="Nasya">
+                    <h3>Nasya</h3>
+                    <p>A nasal cleansing therapy using herbal oils to remove toxins from the head and neck region.</p>
+                </div>
+                <div class="therapy-card">
+                    <img src="images/therapy5.jpg" alt="Raktamokshana">
+                    <h3>Raktamokshana</h3>
+                    <p>A blood purification therapy that helps remove impurities and balance the blood tissues.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section services dark-theme-bg">
+        <div class="container">
+            <h2 class="section-title-light">Our Services</h2>
+            <div class="service-subtitle">Discover holistic Ayurvedic treatments tailored for you</div>
+            <div class="service-grid">
+                <div class="service-card">
+                    <img src="images/service1.jpg" alt="Panchakarma">
+                    <h3>Panchakarma</h3>
+                    <p>Detoxify and rejuvenate with ancient Ayurvedic therapies tailored to your needs.</p>
+                </div>
+                <div class="service-card">
+                    <img src="public/herbalmassage.jpg" alt="Herbal Massage">
+                    <h3>Herbal Massage</h3>
+                    <p>Relax your body with premium herbal oils and specialized massage techniques.</p>
+                </div>
+                <div class="service-card">
+                    <img src="public/diet.jpg" alt="Diet Consultation">
+                    <h3>Diet Consultation</h3>
+                    <p>Personalized Ayurvedic diet plans for improved health and wellness.</p>
+                </div>
+                <div class="service-card" id="t">
+                    <img src="public/virtualgarden.jpg" alt="Virtual Garden">
+                    <h3>Virtual Garden</h3>
+                    <p>Explore a serene digital garden inspired by Ayurveda, bringing peace and balance virtually.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="scheduling" class="section scheduling light-theme-bg">
+        <div class="container">
+            <h2>Schedule Your Wellness Journey</h2>
+            <div class="booking-subtitle">Book your personalized Ayurvedic therapy session with our expert practitioners.</div>
+
+            <div class="scheduling-grid">
+                <div class="scheduling-card">
+                    <h3><i class="fas fa-hand-holding-heart"></i> Select Therapy</h3>
+                    <p class="subtitle">Choose the Ayurvedic treatment that resonates with your needs</p>
+                    <div class="therapy-list">
+                        </div>
+                </div>
+
+                <div class="scheduling-card">
+                    <h3><i class="fas fa-calendar-alt"></i> Select Date & Time</h3>
+                    <p class="subtitle">Pick your preferred appointment date and time slot</p>
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <button id="prevMonth" class="nav-btn">&lt;</button>
+                            <h4 id="currentMonth"></h4>
+                            <button id="nextMonth" class="nav-btn">&gt;</button>
+                        </div>
+                        <div class="calendar-days-header">
+                            <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+                        </div>
+                        <div class="calendar-days" id="calendar-days"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="selected-info-card">
+                <div class="info-item">
+                    <p>Therapy: <span id="selected-therapy"></span></p>
+                </div>
+                <div class="info-item">
+                    <p>Date: <span id="selected-date"></span></p>
+                </div>
+                <div class="info-item">
+                    <p>Time: <span id="selected-time"></span></p>
+                </div>
+                <button class="book-final-btn" id="book-final-btn">Book Appointment</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section about light-theme-bg">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Ayur Nexus is your gateway to authentic Ayurvedic treatments. Our expert practitioners blend traditional wisdom with modern wellness practices to help you achieve holistic healing.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact light-theme-bg">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you! Reach us at:</p>
+            <p><strong>Email:</strong> contact@ayurnexus.com</p>
+            <p><strong>Address:</strong> 123 Ayur Street, Wellness City</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>© 2025 Ayur Nexus | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
